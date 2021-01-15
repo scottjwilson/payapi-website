@@ -7,10 +7,9 @@ import { Container, Button, Input } from "../../styles/ComponentStyles"
 const Hero = () => {
   return (
     <>
-      <Circle />
       <Container>
         <Row>
-          <Col>
+          <Banner>
             <H1>Start building with our APIs for absolutely free.</H1>
             <form>
               <Input type="text" placeHolder="Enter email address"></Input>
@@ -19,10 +18,10 @@ const Hero = () => {
             <BodyIntro>
               Have any questions?<Link to="/contact"> Contact us</Link>
             </BodyIntro>
-          </Col>
-          <Col>
+          </Banner>
+          <PhoneWrapper>
             <Phone />
-          </Col>
+          </PhoneWrapper>
         </Row>
       </Container>
     </>
@@ -31,15 +30,26 @@ const Hero = () => {
 
 const Row = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   place-items: center;
+  grid-template-areas:
+    "phone"
+    "banner";
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    grid-template-areas: "banner phone";
+  }
 `
-const Col = styled.div`
+const Banner = styled.div`
+  grid-area: banner;
   a {
     text-decoration: none;
     font-weight: 800;
   }
-  @media (max-width: 1100px) {
-  }
+`
+
+const PhoneWrapper = styled.div`
+  grid-area: phone;
 `
 export default Hero

@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 import { Button } from "../styles/ComponentStyles"
 import { themes } from "../styles/ColorStyles"
 import styled from "styled-components"
-
 import { Logo } from "../components/ImgComponents"
 
 const Header = () => {
@@ -43,19 +42,28 @@ const Wrapper = styled.header`
   width: 100%;
 `
 const HeaderGroup = styled.ul`
-  max-width: 1100px;
+  // Grid
+
   margin: 2rem auto;
   display: grid;
-
   grid-template-columns: 150px 400px 1fr;
+  // link elements
   li {
-    list-style: none;
+    display: none;
   }
-
   a {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     text-decoration: none;
     color: ${themes.light.text1};
+  }
+  // Desktop
+  @media (min-width: 768px) {
+    max-width: 1100px;
+    grid-template-columns: 150px 400px 1fr;
+
+    li {
+      display: inline;
+    }
   }
 `
 

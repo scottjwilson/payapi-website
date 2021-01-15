@@ -3,53 +3,58 @@ import { Link } from "gatsby"
 
 import styled from "styled-components"
 import { themes } from "../styles/ColorStyles"
-
+import { Container } from "../styles/ComponentStyles"
 import { Logo } from "../components/ImgComponents"
 
 const Footer = () => {
   return (
     <Wrapper>
-      {" "}
-      <FooterGroup>
-        <Brand>
-          <Logo />
-          <li>
-            <span>pay</span>
-            <span className="light">api</span>
-          </li>
-        </Brand>
-        <Links>
-          <li>
-            <Link to="/">Pricing</Link>
-          </li>
-          <li>
-            <Link to="/">About</Link>
-          </li>
-          <li>
-            <Link to="/">Contact</Link>
-          </li>
-        </Links>
-        <Socials>
-          <li>f t in</li>
-        </Socials>
-      </FooterGroup>
+      <Container>
+        <FooterGroup>
+          <Brand>
+            <Logo />
+            <li>
+              <span>pay</span>
+              <span className="light">api</span>
+            </li>
+          </Brand>
+          <Links>
+            <li>
+              <Link to="/">Pricing</Link>
+            </li>
+            <li>
+              <Link to="/">About</Link>
+            </li>
+            <li>
+              <Link to="/">Contact</Link>
+            </li>
+          </Links>
+          <Socials>
+            <li>f t in</li>
+          </Socials>
+        </FooterGroup>
+      </Container>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.footer`
   background-color: ${themes.dark.backgroundColor};
-  height: 100px;
-  display: flex;
-  align-items: center;
 `
 
 const FooterGroup = styled.ul`
-  max-width: 1100px;
-  margin: 2rem auto;
+  color: ${themes.dark.text1};
+  padding: 2rem 0;
   display: grid;
+  grid-template-areas:
+    "brand"
+    "links"
+    "socials";
 
-  grid-template-columns: 150px 400px 1fr;
+  @media (min-width: 768px) {
+    grid-template-columns: 150px 400px 1fr;
+    grid-template-areas: "brand links socials";
+  }
   li {
     list-style: none;
   }
@@ -57,12 +62,15 @@ const FooterGroup = styled.ul`
   a {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     text-decoration: none;
-    color: ${themes.light.text1};
+    color: ${themes.dark.text1};
   }
 `
 
 const Brand = styled.div`
-  color: ${themes.light.text1};
+  display: flex;
+  justify-content: center;
+  grid-area: brand;
+  color: ${themes.dark.text1};
   span {
     font-weight: 700;
   }
@@ -73,18 +81,31 @@ const Brand = styled.div`
     font-size: 1.8rem;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+
+  @media (min-width: 768px) {
+    justify-content: start;
+  }
 `
 const Links = styled.div`
+  grid-area: links;
   display: flex;
-
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 `
 const Socials = styled.div`
-  margin-left: auto;
+  grid-area: socials;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    display: grid;
+  }
 `
 
 export default Footer

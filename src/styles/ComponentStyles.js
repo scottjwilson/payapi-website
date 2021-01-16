@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import { themes } from "./ColorStyles"
 export const Container = styled.div`
-  max-width: 1100px;
+  padding: 0 2rem;
   margin: 0 auto;
+
+  @media (min-width: 1100px) {
+    max-width: 1100px;
+    padding: 0;
+  }
 `
 
 export const Button = styled.button`

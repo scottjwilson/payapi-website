@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import { themes } from "../../styles/ColorStyles"
 import { VscMenu, VscChromeClose } from "react-icons/vsc"
+import { device } from "../../styles/MediaQueries"
 
 export const Wrapper = styled.header`
   top: 0;
@@ -24,7 +25,7 @@ export const HeaderGroup = styled.ul`
     color: ${themes.light.text1};
   }
   // Desktop
-  @media (min-width: 768px) {
+  @media ${device.laptop} {
     max-width: 1100px;
     display: grid;
     grid-template-columns: 150px 400px 1fr;
@@ -108,7 +109,7 @@ export const AsideBar = styled.div`
 export const Hamburger = styled(VscMenu)`
   color: ${themes.light.text1};
   font-size: 2rem;
-  @media (min-width: 768px) {
+  @media ${device.laptop} {
     display: none;
   }
 `
@@ -116,7 +117,7 @@ export const NoBurger = styled(VscChromeClose)`
   color: ${themes.dark.text1};
   font-size: 2rem;
 
-  @media (min-width: 768px) {
+  @media ${device.laptop} {
     display: none;
   }
 `

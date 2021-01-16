@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../layout/Layout"
-import { Hero } from "../components/Home"
+
+import Hero from "../components/Hero/Hero"
 import Header from "../components/Header/Header"
 const IndexPage = () => {
   return (

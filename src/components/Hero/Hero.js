@@ -1,9 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
-import { Phone, Circle } from "../../components/ImgComponents"
+import { Phone } from "../ImgComponents"
 import { H1, BodyIntro } from "../../styles/TextStyles"
 import { Container, Button, Input } from "../../styles/ComponentStyles"
+import { Row, Banner, PhoneWrapper } from "./HeroStyles"
+
 const Hero = () => {
   return (
     <>
@@ -28,28 +29,4 @@ const Hero = () => {
   )
 }
 
-const Row = styled.div`
-  display: grid;
-  place-items: center;
-  grid-template-areas:
-    "phone"
-    "banner";
-
-  @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    place-items: center;
-    grid-template-areas: "banner phone";
-  }
-`
-const Banner = styled.div`
-  grid-area: banner;
-  a {
-    text-decoration: none;
-    font-weight: 800;
-  }
-`
-
-const PhoneWrapper = styled.div`
-  grid-area: phone;
-`
 export default Hero
